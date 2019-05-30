@@ -1,4 +1,4 @@
-# Abstract-Perlin-Fields
+# Abstract Perlin Fields
 Abstract generative art based on perlin noise written in Processing
 
 # Examples
