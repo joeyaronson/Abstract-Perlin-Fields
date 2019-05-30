@@ -6,6 +6,8 @@ Abstract generative art based on perlin noise written in Processing
 ![pink-blue](./screenshots/cfinal-030430.png)
 ![red-blue-yellow](./screenshots/plc2-011421.png)
 
+View more screenshots in the screenshots folder
+
 # How to Use
 1.  Download abstract-perlin-fields.pde and open it in Processing
 2.  Choose various parameters for the sketch:
@@ -16,4 +18,8 @@ Abstract generative art based on perlin noise written in Processing
 3. Run the sketch (note this sketch will run very slowly)
 4. To take screenshots while the sketch is running press any key
 5. The sketch will save a final screenshot when finished and then close
+
+# Authors
+Joseph Aronson
+
 
