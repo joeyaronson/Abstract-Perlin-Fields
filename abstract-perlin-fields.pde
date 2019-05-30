@@ -9,9 +9,8 @@ void setup() {
     //set stroke color here
     stroke(0);
 
-
-    strokeWeight(1.5);
-    loadColors(str_weight);
+    strokeWeight(str_weight);
+    loadColors();
 }
 
 ArrayList<Particle> p = new ArrayList<Particle>();
@@ -24,9 +23,11 @@ float noiseVal2 = 0.0005;
 color colors[] = {#00FFFF,#FF00FF,#FFFF00};
 ArrayList<Integer> col_array = new ArrayList<Integer>();
 float steps = 50;
-float str_weight = 1.5;
+//set stroke weight here higher stroke weight results in darker result
+float str_weight = 1;
 
 
+//loads colors from the colors array and generates a gradient palette
 void loadColors(){
     
     for(int i = 0; i < steps/1.5;i++){
@@ -49,25 +50,30 @@ void loadColors(){
 
 
 void draw() {
-
+    //for each particle
     for(int i = 0; i < p.size(); i++){
         p.get(i).move();
         p.get(i).display();
         
+        //remove particle from array if they move too far from canvas
         if(p.get(i).x > width + 1000 ||  p.get(i).x < -1000 || p.get(i).y > height+1000 || p.get(i).y < -1000){
             p.remove(i);
         }
         
+        //saves final copy of canvas
         if(p.size() == 0){
-            saveFrame("apf-######.png");
+            saveFrame("apf-final-######.png");
             exit();
         }
     }    
 }
+
+//takes screenshot on key press
 void keyPressed() {
-    saveFrame("apf-final-######.png");
+    saveFrame("apf-######.png");
 }
 
+//particle class
 class Particle{
     float x;
     float y;
@@ -79,7 +85,6 @@ class Particle{
     }
     
     void display(){
-        //float h = map(this.nx+this.ny,0,2,-70,170);
         float h = map(this.nx,0,1,0,col_array.size());
         fill(col_array.get(floor(h)));
         ellipse(this.x,this.y,25,25);
@@ -96,6 +101,7 @@ class Particle{
     }
 }
 
+//loads particles into particle array
 void drawParticles(){
     for(int i = -1; i <= num+1; i+= 1){
         for(int j = -1; j <= num+1; j+=1){
