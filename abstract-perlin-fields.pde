@@ -24,7 +24,7 @@ float noiseVal2 = 0.0005;
 color colors[] = {#00FFFF,#FF00FF,#FFFF00};
 ArrayList<Integer> col_array = new ArrayList<Integer>();
 float steps = 50;
-float str_weight
+float str_weight = 1.5;
 
 
 void loadColors(){
